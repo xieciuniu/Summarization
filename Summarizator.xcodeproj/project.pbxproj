@@ -3,23 +3,61 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5A1D84BD2B8C5B42002B4BC1 /* SummarizatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84BC2B8C5B42002B4BC1 /* SummarizatorApp.swift */; };
+		5A1D84BF2B8C5B42002B4BC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84BE2B8C5B42002B4BC1 /* ContentView.swift */; };
+		5A1D84C12B8C5B45002B4BC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D84C02B8C5B45002B4BC1 /* Assets.xcassets */; };
+		5A1D84C42B8C5B45002B4BC1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D84C32B8C5B45002B4BC1 /* Preview Assets.xcassets */; };
+		5A1D84D22B8C5BBA002B4BC1 /* RecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84D12B8C5BBA002B4BC1 /* RecordingsView.swift */; };
+		5A1D84D42B8C5BBA002B4BC1 /* RecordingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84D32B8C5BBA002B4BC1 /* RecordingDetailView.swift */; };
+		5A1D84D62B8C5BBA002B4BC1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84D52B8C5BBA002B4BC1 /* SettingsView.swift */; };
+		5A1D84D82B8C5BCF002B4BC1 /* RecordingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84D72B8C5BCF002B4BC1 /* RecordingsViewModel.swift */; };
+		5A1D84DA2B8C5BCF002B4BC1 /* TranscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84D92B8C5BCF002B4BC1 /* TranscriptionViewModel.swift */; };
+		5A1D84DC2B8C5BCF002B4BC1 /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84DB2B8C5BCF002B4BC1 /* SummaryViewModel.swift */; };
+		5A1D84DE2B8C5BCF002B4BC1 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84DD2B8C5BCF002B4BC1 /* SettingsViewModel.swift */; };
+		5A1D84E02B8C5BE7002B4BC1 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84DF2B8C5BE7002B4BC1 /* Recording.swift */; };
+		5A1D84E22B8C5BE7002B4BC1 /* Transcript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84E12B8C5BE7002B4BC1 /* Transcript.swift */; };
+		5A1D84E42B8C5BE7002B4BC1 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84E32B8C5BE7002B4BC1 /* Summary.swift */; };
+		5A1D84E62B8C5BE7002B4BC1 /* LLMProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84E52B8C5BE7002B4BC1 /* LLMProvider.swift */; };
+		5A1D84E82B8C5C01002B4BC1 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84E72B8C5C01002B4BC1 /* AudioRecorder.swift */; };
+		5A1D84EA2B8C5C01002B4BC1 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84E92B8C5C01002B4BC1 /* TranscriptionService.swift */; };
+		5A1D84EC2B8C5C01002B4BC1 /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84EB2B8C5C01002B4BC1 /* LLMService.swift */; };
+		5A1D84EE2B8C5C01002B4BC1 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84ED2B8C5C01002B4BC1 /* StorageService.swift */; };
+		5A1D84F02B8C5C12002B4BC1 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1D84EF2B8C5C12002B4BC1 /* APIKeyManager.swift */; };
+		5A1D84F22B8C5C30002B4BC1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D84F12B8C5C30002B4BC1 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		DBD5B9B42D6F2CA100CA0D17 /* Summarizator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summarizator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1D84B92B8C5B42002B4BC1 /* Summarizator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Summarizator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1D84BC2B8C5B42002B4BC1 /* SummarizatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizatorApp.swift; sourceTree = "<group>"; };
+		5A1D84BE2B8C5B42002B4BC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5A1D84C02B8C5B45002B4BC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A1D84C32B8C5B45002B4BC1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5A1D84D12B8C5BBA002B4BC1 /* RecordingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsView.swift; sourceTree = "<group>"; };
+		5A1D84D32B8C5BBA002B4BC1 /* RecordingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingDetailView.swift; sourceTree = "<group>"; };
+		5A1D84D52B8C5BBA002B4BC1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5A1D84D72B8C5BCF002B4BC1 /* RecordingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsViewModel.swift; sourceTree = "<group>"; };
+		5A1D84D92B8C5BCF002B4BC1 /* TranscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewModel.swift; sourceTree = "<group>"; };
+		5A1D84DB2B8C5BCF002B4BC1 /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
+		5A1D84DD2B8C5BCF002B4BC1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		5A1D84DF2B8C5BE7002B4BC1 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		5A1D84E12B8C5BE7002B4BC1 /* Transcript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcript.swift; sourceTree = "<group>"; };
+		5A1D84E32B8C5BE7002B4BC1 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		5A1D84E52B8C5BE7002B4BC1 /* LLMProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMProvider.swift; sourceTree = "<group>"; };
+		5A1D84E72B8C5C01002B4BC1 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		5A1D84E92B8C5C01002B4BC1 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
+		5A1D84EB2B8C5C01002B4BC1 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
+		5A1D84ED2B8C5C01002B4BC1 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		5A1D84EF2B8C5C12002B4BC1 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
+		5A1D84F12B8C5C30002B4BC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5A1D84F32B8C5C4C002B4BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		DBD5B9B62D6F2CA100CA0D17 /* Summarizator */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Summarizator;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		DBD5B9B12D6F2CA100CA0D17 /* Frameworks */ = {
+		5A1D84B62B8C5B42002B4BC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,107 +67,207 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DBD5B9AB2D6F2CA100CA0D17 = {
+		5A1D84B02B8C5B42002B4BC1 = {
 			isa = PBXGroup;
 			children = (
-				DBD5B9B62D6F2CA100CA0D17 /* Summarizator */,
-				DBD5B9B52D6F2CA100CA0D17 /* Products */,
+				5A1D84BB2B8C5B42002B4BC1 /* Summarizator */,
+				5A1D84BA2B8C5B42002B4BC1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DBD5B9B52D6F2CA100CA0D17 /* Products */ = {
+		5A1D84BA2B8C5B42002B4BC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DBD5B9B42D6F2CA100CA0D17 /* Summarizator.app */,
+				5A1D84B92B8C5B42002B4BC1 /* Summarizator.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5A1D84BB2B8C5B42002B4BC1 /* Summarizator */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84F12B8C5C30002B4BC1 /* README.md */,
+				5A1D84F32B8C5C4C002B4BC1 /* Info.plist */,
+				5A1D84CA2B8C5B57002B4BC1 /* App */,
+				5A1D84CD2B8C5B76002B4BC1 /* Models */,
+				5A1D84CC2B8C5B6D002B4BC1 /* ViewModels */,
+				5A1D84CB2B8C5B63002B4BC1 /* Views */,
+				5A1D84CE2B8C5B80002B4BC1 /* Services */,
+				5A1D84CF2B8C5B8A002B4BC1 /* Utils */,
+				5A1D84C02B8C5B45002B4BC1 /* Assets.xcassets */,
+				5A1D84C22B8C5B45002B4BC1 /* Preview Content */,
+			);
+			path = Summarizator;
+			sourceTree = "<group>";
+		};
+		5A1D84C22B8C5B45002B4BC1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84C32B8C5B45002B4BC1 /* Preview Assets.xcassets */,
+			);
+			name = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5A1D84CA2B8C5B57002B4BC1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84BC2B8C5B42002B4BC1 /* SummarizatorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5A1D84CB2B8C5B63002B4BC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84BE2B8C5B42002B4BC1 /* ContentView.swift */,
+				5A1D84D12B8C5BBA002B4BC1 /* RecordingsView.swift */,
+				5A1D84D32B8C5BBA002B4BC1 /* RecordingDetailView.swift */,
+				5A1D84D52B8C5BBA002B4BC1 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5A1D84CC2B8C5B6D002B4BC1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84D72B8C5BCF002B4BC1 /* RecordingsViewModel.swift */,
+				5A1D84D92B8C5BCF002B4BC1 /* TranscriptionViewModel.swift */,
+				5A1D84DB2B8C5BCF002B4BC1 /* SummaryViewModel.swift */,
+				5A1D84DD2B8C5BCF002B4BC1 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5A1D84CD2B8C5B76002B4BC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84DF2B8C5BE7002B4BC1 /* Recording.swift */,
+				5A1D84E12B8C5BE7002B4BC1 /* Transcript.swift */,
+				5A1D84E32B8C5BE7002B4BC1 /* Summary.swift */,
+				5A1D84E52B8C5BE7002B4BC1 /* LLMProvider.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5A1D84CE2B8C5B80002B4BC1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84E72B8C5C01002B4BC1 /* AudioRecorder.swift */,
+				5A1D84E92B8C5C01002B4BC1 /* TranscriptionService.swift */,
+				5A1D84EB2B8C5C01002B4BC1 /* LLMService.swift */,
+				5A1D84ED2B8C5C01002B4BC1 /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5A1D84CF2B8C5B8A002B4BC1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D84EF2B8C5C12002B4BC1 /* APIKeyManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DBD5B9B32D6F2CA100CA0D17 /* Summarizator */ = {
+		5A1D84B82B8C5B42002B4BC1 /* Summarizator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DBD5B9C22D6F2CA200CA0D17 /* Build configuration list for PBXNativeTarget "Summarizator" */;
+			buildConfigurationList = 5A1D84C72B8C5B45002B4BC1 /* Build configuration list for PBXNativeTarget "Summarizator" */;
 			buildPhases = (
-				DBD5B9B02D6F2CA100CA0D17 /* Sources */,
-				DBD5B9B12D6F2CA100CA0D17 /* Frameworks */,
-				DBD5B9B22D6F2CA100CA0D17 /* Resources */,
+				5A1D84B52B8C5B42002B4BC1 /* Sources */,
+				5A1D84B62B8C5B42002B4BC1 /* Frameworks */,
+				5A1D84B72B8C5B42002B4BC1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				DBD5B9B62D6F2CA100CA0D17 /* Summarizator */,
-			);
 			name = Summarizator;
-			packageProductDependencies = (
-			);
 			productName = Summarizator;
-			productReference = DBD5B9B42D6F2CA100CA0D17 /* Summarizator.app */;
+			productReference = 5A1D84B92B8C5B42002B4BC1 /* Summarizator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DBD5B9AC2D6F2CA100CA0D17 /* Project object */ = {
+		5A1D84B12B8C5B42002B4BC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					DBD5B9B32D6F2CA100CA0D17 = {
-						CreatedOnToolsVersion = 16.2;
+					5A1D84B82B8C5B42002B4BC1 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = DBD5B9AF2D6F2CA100CA0D17 /* Build configuration list for PBXProject "Summarizator" */;
-			developmentRegion = en;
+			buildConfigurationList = 5A1D84B42B8C5B42002B4BC1 /* Build configuration list for PBXProject "Summarizator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = pl;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
-			mainGroup = DBD5B9AB2D6F2CA100CA0D17;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
-			productRefGroup = DBD5B9B52D6F2CA100CA0D17 /* Products */;
+			mainGroup = 5A1D84B02B8C5B42002B4BC1;
+			productRefGroup = 5A1D84BA2B8C5B42002B4BC1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DBD5B9B32D6F2CA100CA0D17 /* Summarizator */,
+				5A1D84B82B8C5B42002B4BC1 /* Summarizator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DBD5B9B22D6F2CA100CA0D17 /* Resources */ = {
+		5A1D84B72B8C5B42002B4BC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1D84C42B8C5B45002B4BC1 /* Preview Assets.xcassets in Resources */,
+				5A1D84F22B8C5C30002B4BC1 /* README.md in Resources */,
+				5A1D84C12B8C5B45002B4BC1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DBD5B9B02D6F2CA100CA0D17 /* Sources */ = {
+		5A1D84B52B8C5B42002B4BC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1D84EA2B8C5C01002B4BC1 /* TranscriptionService.swift in Sources */,
+				5A1D84D42B8C5BBA002B4BC1 /* RecordingDetailView.swift in Sources */,
+				5A1D84D82B8C5BCF002B4BC1 /* RecordingsViewModel.swift in Sources */,
+				5A1D84F02B8C5C12002B4BC1 /* APIKeyManager.swift in Sources */,
+				5A1D84E02B8C5BE7002B4BC1 /* Recording.swift in Sources */,
+				5A1D84E62B8C5BE7002B4BC1 /* LLMProvider.swift in Sources */,
+				5A1D84EC2B8C5C01002B4BC1 /* LLMService.swift in Sources */,
+				5A1D84DA2B8C5BCF002B4BC1 /* TranscriptionViewModel.swift in Sources */,
+				5A1D84D22B8C5BBA002B4BC1 /* RecordingsView.swift in Sources */,
+				5A1D84DC2B8C5BCF002B4BC1 /* SummaryViewModel.swift in Sources */,
+				5A1D84E82B8C5C01002B4BC1 /* AudioRecorder.swift in Sources */,
+				5A1D84BF2B8C5B42002B4BC1 /* ContentView.swift in Sources */,
+				5A1D84E22B8C5BE7002B4BC1 /* Transcript.swift in Sources */,
+				5A1D84D62B8C5BBA002B4BC1 /* SettingsView.swift in Sources */,
+				5A1D84EE2B8C5C01002B4BC1 /* StorageService.swift in Sources */,
+				5A1D84BD2B8C5B42002B4BC1 /* SummarizatorApp.swift in Sources */,
+				5A1D84E42B8C5BE7002B4BC1 /* Summary.swift in Sources */,
+				5A1D84DE2B8C5BCF002B4BC1 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		DBD5B9C02D6F2CA200CA0D17 /* Debug */ = {
+		5A1D84C52B8C5B45002B4BC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -162,8 +300,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -177,22 +314,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		DBD5B9C12D6F2CA200CA0D17 /* Release */ = {
+		5A1D84C62B8C5B45002B4BC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -225,8 +361,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -234,7 +369,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -244,7 +379,7 @@
 			};
 			name = Release;
 		};
-		DBD5B9C32D6F2CA200CA0D17 /* Debug */ = {
+		5A1D84C82B8C5B45002B4BC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -252,9 +387,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Summarizator/Preview Content\"";
-				DEVELOPMENT_TEAM = FC3RG2JLGW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Summarizator/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Potrzebujemy dost\\U0119pu do mikrofonu aby nagrywa\\U0107 wyk\\U0142ady do transkrypcji i podsumowania.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Potrzebujemy dost\\U0119pu do rozpoznawania mowy aby transkrybowa\\U0107 nagrane wyk\\U0142ady.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -265,7 +402,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Hubert.Summarizator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xieciuniu.Summarizator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -273,7 +410,7 @@
 			};
 			name = Debug;
 		};
-		DBD5B9C42D6F2CA200CA0D17 /* Release */ = {
+		5A1D84C92B8C5B45002B4BC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -281,9 +418,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Summarizator/Preview Content\"";
-				DEVELOPMENT_TEAM = FC3RG2JLGW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Summarizator/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Potrzebujemy dost\\U0119pu do mikrofonu aby nagrywa\\U0107 wyk\\U0142ady do transkrypcji i podsumowania.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Potrzebujemy dost\\U0119pu do rozpoznawania mowy aby transkrybowa\\U0107 nagrane wyk\\U0142ady.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,7 +433,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Hubert.Summarizator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xieciuniu.Summarizator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -305,25 +444,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DBD5B9AF2D6F2CA100CA0D17 /* Build configuration list for PBXProject "Summarizator" */ = {
+		5A1D84B42B8C5B42002B4BC1 /* Build configuration list for PBXProject "Summarizator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DBD5B9C02D6F2CA200CA0D17 /* Debug */,
-				DBD5B9C12D6F2CA200CA0D17 /* Release */,
+				5A1D84C52B8C5B45002B4BC1 /* Debug */,
+				5A1D84C62B8C5B45002B4BC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DBD5B9C22D6F2CA200CA0D17 /* Build configuration list for PBXNativeTarget "Summarizator" */ = {
+		5A1D84C72B8C5B45002B4BC1 /* Build configuration list for PBXNativeTarget "Summarizator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DBD5B9C32D6F2CA200CA0D17 /* Debug */,
-				DBD5B9C42D6F2CA200CA0D17 /* Release */,
+				5A1D84C82B8C5B45002B4BC1 /* Debug */,
+				5A1D84C92B8C5B45002B4BC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DBD5B9AC2D6F2CA100CA0D17 /* Project object */;
+	rootObject = 5A1D84B12B8C5B42002B4BC1 /* Project object */;
 }
