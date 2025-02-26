@@ -83,31 +83,35 @@ struct SettingsView: View {
         case .openAI:
             return Alert(
                 title: Text("OpenAI API Key"),
-                message: Text("You need an OpenAI API key to use their models. Visit openai.com to sign up and get your API key."),
+                message: Text("You can get your API key from the OpenAI platform. Visit https://platform.openai.com/account/api-keys to create or manage your keys."),
                 dismissButton: .default(Text("OK"))
             )
+            
         case .anthropic:
             return Alert(
                 title: Text("Anthropic API Key"),
-                message: Text("You need an Anthropic API key to use Claude models. Visit anthropic.com to sign up and get your API key."),
+                message: Text("You can get your API key from the Anthropic Console. Visit https://console.anthropic.com/keys to create or manage your keys."),
                 dismissButton: .default(Text("OK"))
             )
+            
         case .gemini:
             return Alert(
-                title: Text("Google AI API Key"),
-                message: Text("You need a Google AI API key to use Gemini models. Visit ai.google.dev to sign up and get your API key."),
+                title: Text("Google Gemini API Key"),
+                message: Text("You can get your API key from the Google AI Studio. Visit https://aistudio.google.com/app/apikey to create or manage your keys."),
                 dismissButton: .default(Text("OK"))
             )
+            
         case .mistral:
             return Alert(
                 title: Text("Mistral API Key"),
-                message: Text("You need a Mistral API key to use their models. Visit mistral.ai to sign up and get your API key."),
+                message: Text("You can get your API key from the Mistral platform. Visit https://console.mistral.ai/api-keys/ to create or manage your keys."),
                 dismissButton: .default(Text("OK"))
             )
+            
         case .ollama:
             return Alert(
                 title: Text("Ollama"),
-                message: Text("Ollama runs locally on your machine. Make sure you have Ollama installed and running at http://localhost:11434. No API key required."),
+                message: Text("Ollama runs locally on your machine. Make sure you have Ollama installed and running at http://localhost:11434. No API key is required."),
                 dismissButton: .default(Text("OK"))
             )
         }
