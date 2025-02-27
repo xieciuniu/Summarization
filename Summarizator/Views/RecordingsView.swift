@@ -1,10 +1,13 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct RecordingsView: View {
     @EnvironmentObject var recordingsViewModel: RecordingsViewModel
     @State private var isRecording = false
     @State private var showRecordingSheet = false
-    @State private var recordingTitle = ""
+    @State private var showImportSheet = false
+    @State private var showFilePicker = false
+    @State private var importTitle = ""
     @State private var selectedRecording: Recording? = nil
     
     var body: some View {
@@ -21,9 +24,19 @@ struct RecordingsView: View {
             .navigationTitle("Nagrania")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showRecordingSheet = true
-                    }) {
+                    Menu {
+                        Button(action: {
+                            showRecordingSheet = true
+                        }) {
+                            Label("Nowe nagranie", systemImage: "mic")
+                        }
+                        
+                        Button(action: {
+                            showImportSheet = true
+                        }) {
+                            Label("Importuj plik", systemImage: "square.and.arrow.down")
+                        }
+                    } label: {
                         Image(systemName: "plus")
                     }
                 }
@@ -33,6 +46,40 @@ struct RecordingsView: View {
             }
             .sheet(item: $selectedRecording) { recording in
                 RecordingDetailView(recording: recording)
+            }
+            .sheet(isPresented: $showImportSheet) {
+                ImportSheetView(isPresented: $showImportSheet, showFilePicker: $showFilePicker, importTitle: $importTitle)
+            }
+            .fileImporter(
+                isPresented: $showFilePicker,
+                allowedContentTypes: [UTType.audio, UTType.mp3, UTType.wav, .init(filenameExtension: "m4a")!],
+                allowsMultipleSelection: false
+            ) { result in
+                showImportSheet = false
+                
+                switch result {
+                case .success(let urls):
+                    guard let url = urls.first else { return }
+                    
+                    // Uzyskaj dostęp do pliku
+                    if url.startAccessingSecurityScopedResource() {
+                        // Zaimportuj plik
+                        recordingsViewModel.importAudio(from: url, withTitle: importTitle.isEmpty ? nil : importTitle)
+                        
+                        // Zakończ dostęp do pliku
+                        url.stopAccessingSecurityScopedResource()
+                    }
+                case .failure(let error):
+                    print("File selection error: \(error)")
+                }
+            }
+            .alert(item: Binding<AlertItem?>(
+                get: { 
+                    recordingsViewModel.importError != nil ? AlertItem(message: recordingsViewModel.importError!) : nil 
+                },
+                set: { _ in recordingsViewModel.importError = nil }
+            )) { alert in
+                Alert(title: Text("Błąd importu"), message: Text(alert.message), dismissButton: .default(Text("OK")))
             }
         }
     }
@@ -47,21 +94,44 @@ struct RecordingsView: View {
                 .font(.title2)
                 .fontWeight(.bold)
             
-            Text("Dotknij przycisku + aby rozpocząć nagrywanie wykładu")
+            Text("Dotknij przycisku + aby rozpocząć nagrywanie wykładu lub zaimportować nagranie")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
-            Button(action: {
-                showRecordingSheet = true
-            }) {
-                Text("Rozpocznij nagrywanie")
-                    .fontWeight(.semibold)
+            HStack(spacing: 16) {
+                Button(action: {
+                    showRecordingSheet = true
+                }) {
+                    VStack {
+                        Image(systemName: "mic.circle.fill")
+                            .font(.system(size: 36))
+                        Text("Nagraj")
+                            .font(.caption)
+                    }
                     .padding()
+                    .frame(minWidth: 100)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+                }
+                
+                Button(action: {
+                    showImportSheet = true
+                }) {
+                    VStack {
+                        Image(systemName: "square.and.arrow.down.fill")
+                            .font(.system(size: 36))
+                        Text("Importuj")
+                            .font(.caption)
+                    }
+                    .padding()
+                    .frame(minWidth: 100)
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
             }
             .padding(.top, 10)
         }
@@ -263,6 +333,74 @@ struct RecordingSheetView: View {
             }
         }
     }
+}
+
+struct ImportSheetView: View {
+    @Binding var isPresented: Bool
+    @Binding var showFilePicker: Bool
+    @Binding var importTitle: String
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("Zaimportuj plik audio")
+                    .font(.headline)
+                    .padding(.top)
+                
+                Image(systemName: "square.and.arrow.down")
+                    .font(.system(size: 64))
+                    .foregroundColor(.blue)
+                    .padding()
+                
+                TextField("Opcjonalny tytuł nagrania", text: $importTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal)
+                
+                Text("Jeśli nie podasz tytułu, zostanie użyta nazwa pliku.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                
+                Button(action: {
+                    showFilePicker = true
+                }) {
+                    HStack {
+                        Image(systemName: "doc.badge.plus")
+                        Text("Wybierz plik audio")
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                .padding(.top)
+                
+                Text("Obsługiwane formaty: MP3, M4A, WAV")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Import pliku")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Anuluj") {
+                        isPresented = false
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Pomocniczy typ do wyświetlania alertu błędu
+struct AlertItem: Identifiable {
+    var id = UUID()
+    var message: String
 }
 
 struct RecordingsView_Previews: PreviewProvider {
