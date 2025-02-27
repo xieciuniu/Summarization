@@ -3,6 +3,11 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var settingsViewModel: SettingsViewModel
     @State private var showingAPIKeyInfo = false
+    @FocusState private var focusedField: FocusableField?
+    
+    enum FocusableField {
+        case apiKey, customPrompt
+    }
     
     var body: some View {
         NavigationView {
@@ -29,10 +34,14 @@ struct SettingsView: View {
                             SecureField("Wprowadź klucz API", text: $settingsViewModel.apiKey) {
                                 settingsViewModel.saveSettings()
                             }
+                            .focused($focusedField, equals: .apiKey)
+                            .submitLabel(.done)
                         } else {
                             SecureField("Klucz API (zapisany)", text: $settingsViewModel.apiKey) {
                                 settingsViewModel.saveSettings()
                             }
+                            .focused($focusedField, equals: .apiKey)
+                            .submitLabel(.done)
                         }
                         
                         Button(action: {
@@ -53,6 +62,7 @@ struct SettingsView: View {
                 Section(header: Text("Ustawienia instrukcji"), footer: Text("Dostosuj instrukcję używaną do określenia, jak model językowy ma formatować i strukturyzować twoje podsumowania wykładów.")) {
                     TextEditor(text: $settingsViewModel.customPrompt)
                         .frame(minHeight: 100)
+                        .focused($focusedField, equals: .customPrompt)
                     
                     Button("Przywróć domyślne") {
                         settingsViewModel.customPrompt = "Stwórz szczegółowe podsumowanie poniższego wykładu. Uwzględnij kluczowe zagadnienia, pojęcia i istotne szczegóły. Sformatuj podsumowanie z nagłówkami, punktami i sekcjami dla łatwiejszej czytelności."
@@ -74,6 +84,20 @@ struct SettingsView: View {
             .navigationTitle("Ustawienia")
             .alert(isPresented: $showingAPIKeyInfo) {
                 getAPIKeyInfoAlert(for: settingsViewModel.selectedLLMProvider)
+            }
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    HStack {
+                        Spacer()
+                        Button("Gotowe") {
+                            focusedField = nil
+                        }
+                    }
+                }
+            }
+            .onTapGesture {
+                // Ukryj klawiaturę po tapnięciu w innym miejscu
+                focusedField = nil
             }
         }
     }
@@ -97,7 +121,7 @@ struct SettingsView: View {
         case .gemini:
             return Alert(
                 title: Text("Klucz API Google Gemini"),
-                message: Text("Możesz uzyskać klucz API z Google AI Studio. Odwiedź https://aistudio.google.com/app/apikey, aby utworzyć lub zarządzać swoimi kluczami."),
+                message: Text("Możesz uzyskać klucz API z Google AI Studio. Odwiedź https://aistudio.google.com/app/apikey, aby utworzyć lub zarządgać swoimi kluczami."),
                 dismissButton: .default(Text("OK"))
             )
             
@@ -115,6 +139,13 @@ struct SettingsView: View {
                 dismissButton: .default(Text("OK"))
             )
         }
+    }
+}
+
+// Widok do dodania gestu do ukrywania klawiatury
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
