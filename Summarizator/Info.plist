@@ -6,5 +6,47 @@
 	<string>Potrzebujemy dostępu do mikrofonu aby nagrywać wykłady do transkrypcji i podsumowania.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Potrzebujemy dostępu do rozpoznawania mowy aby transkrybować nagrane wykłady.</string>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Audio Files</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.audio</string>
+				<string>public.mp3</string>
+				<string>public.m4a</string>
+				<string>public.wav</string>
+			</array>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>public.audio</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>mp3</string>
+					<string>m4a</string>
+					<string>wav</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>audio/mpeg</string>
+					<string>audio/mp4</string>
+					<string>audio/wav</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
