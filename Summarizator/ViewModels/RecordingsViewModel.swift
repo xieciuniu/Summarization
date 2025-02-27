@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import AVFoundation
 
 class RecordingsViewModel: ObservableObject {
     @Published var recordings: [Recording] = []
@@ -8,15 +9,19 @@ class RecordingsViewModel: ObservableObject {
     @Published var recordingState: RecordingState = .idle
     @Published var recordingTime: TimeInterval = 0
     @Published var isLoading: Bool = false
+    @Published var importError: String?
     
     private var audioRecorder: AudioRecorder
+    private var audioImportService: AudioImportService
     private var storageService: StorageService
     private var cancellables = Set<AnyCancellable>()
     private var timer: Timer?
     
-    init(audioRecorder: AudioRecorder = AudioRecorder(), 
+    init(audioRecorder: AudioRecorder = AudioRecorder(),
+         audioImportService: AudioImportService = AudioImportService(),
          storageService: StorageService = StorageService()) {
         self.audioRecorder = audioRecorder
+        self.audioImportService = audioImportService
         self.storageService = storageService
         
         loadRecordings()
@@ -54,6 +59,8 @@ class RecordingsViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Nagrywanie
+    
     func startRecording(title: String) {
         audioRecorder.startRecording(title: title) { [weak self] result in
             DispatchQueue.main.async {
@@ -87,6 +94,31 @@ class RecordingsViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - Importowanie plików
+    
+    func importAudio(from url: URL, withTitle title: String? = nil) {
+        // Wyczyść poprzednie błędy
+        importError = nil
+        
+        // Użyj tytułu podanego przez użytkownika lub nazwy pliku bez rozszerzenia
+        let fileTitle = title ?? url.deletingPathExtension().lastPathComponent
+        
+        // Zaimportuj plik
+        audioImportService.importAudio(from: url, withTitle: fileTitle) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let recording):
+                    self?.addRecording(recording)
+                case .failure(let error):
+                    self?.importError = "Błąd importowania pliku: \(error.localizedDescription)"
+                    print("Import error: \(error)")
+                }
+            }
+        }
+    }
+    
+    // MARK: - Zarządzanie nagraniami
     
     func addRecording(_ recording: Recording) {
         recordings.insert(recording, at: 0)
@@ -122,6 +154,8 @@ class RecordingsViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - Timer i formatowanie
     
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
