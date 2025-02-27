@@ -13,16 +13,13 @@ class RecordingsViewModel: ObservableObject {
     @Published var importError: String?
     
     private var audioRecorder: AudioRecorder
-    private var audioImportService: AudioImportService
     private var storageService: StorageService
     private var cancellables = Set<AnyCancellable>()
     private var timer: Timer?
     
-    init(audioRecorder: AudioRecorder = AudioRecorder(),
-         audioImportService: AudioImportService = AudioImportService(),
+    init(audioRecorder: AudioRecorder = AudioRecorder(), 
          storageService: StorageService = StorageService()) {
         self.audioRecorder = audioRecorder
-        self.audioImportService = audioImportService
         self.storageService = storageService
         
         loadRecordings()
@@ -109,7 +106,7 @@ class RecordingsViewModel: ObservableObject {
         let fileTitle = title ?? url.deletingPathExtension().lastPathComponent
         
         // Zaimportuj plik
-        audioImportService.importAudio(from: url, withTitle: fileTitle) { [weak self] result in
+        audioRecorder.importAudio(from: url, withTitle: fileTitle) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let recording):
