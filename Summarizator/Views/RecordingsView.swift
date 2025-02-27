@@ -52,7 +52,7 @@ struct RecordingsView: View {
             }
             .fileImporter(
                 isPresented: $showFilePicker,
-                allowedContentTypes: [UTType.audio, UTType.mp3, UTType.wav, .init(filenameExtension: "m4a")!],
+                allowedContentTypes: [.audio, .mp3, .wav, UTType(filenameExtension: "m4a") ?? .audio],
                 allowsMultipleSelection: false
             ) { result in
                 showImportSheet = false
@@ -401,6 +401,13 @@ struct ImportSheetView: View {
 struct AlertItem: Identifiable {
     var id = UUID()
     var message: String
+}
+
+// Rozszerzenia dla UTType dla iOS 15
+extension UTType {
+    static let audio = UTType(tag: "public.audio", tagClass: .filenameExtension, conformingTo: nil) ?? .data
+    static let mp3 = UTType(tag: "public.mp3", tagClass: .filenameExtension, conformingTo: .audio) ?? .audio
+    static let wav = UTType(tag: "public.wav", tagClass: .filenameExtension, conformingTo: .audio) ?? .audio
 }
 
 struct RecordingsView_Previews: PreviewProvider {
