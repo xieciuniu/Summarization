@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import SwiftUI
 import AVFoundation
+import UniformTypeIdentifiers
 
 class RecordingsViewModel: ObservableObject {
     @Published var recordings: [Recording] = []
@@ -30,6 +31,7 @@ class RecordingsViewModel: ObservableObject {
     
     private func setupBindings() {
         audioRecorder.$recordingState
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 self?.recordingState = state
                 if state == .recording {
@@ -99,7 +101,9 @@ class RecordingsViewModel: ObservableObject {
     
     func importAudio(from url: URL, withTitle title: String? = nil) {
         // Wyczyść poprzednie błędy
-        importError = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.importError = nil
+        }
         
         // Użyj tytułu podanego przez użytkownika lub nazwy pliku bez rozszerzenia
         let fileTitle = title ?? url.deletingPathExtension().lastPathComponent
@@ -159,7 +163,9 @@ class RecordingsViewModel: ObservableObject {
     
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            self?.recordingTime += 1.0
+            DispatchQueue.main.async {
+                self?.recordingTime += 1.0
+            }
         }
     }
     
